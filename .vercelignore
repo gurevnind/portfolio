@@ -1,0 +1,8 @@
+# Vercel получает только готовую сборку
+/design
+/screenshots
+/src
+/build.py
+/requirements.txt
+/*.md
+/netlify.toml

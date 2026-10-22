@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Массовые операции по филиальной сети — фича · Дмитрий Гуревнин</title>
+<meta name="description" content="Фича корпоративной платформы: автоматизация массовых операций по филиальной сети.">
+<link rel="canonical" href="https://gurevnind.ru/cases/sber-platform/bulk-operations/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Дмитрий Гуревнин">
+<meta property="og:title" content="Массовые операции по филиальной сети — фича · Дмитрий Гуревнин">
+<meta property="og:description" content="Фича корпоративной платформы: автоматизация массовых операций по филиальной сети.">
+<meta property="og:url" content="https://gurevnind.ru/cases/sber-platform/bulk-operations/">
+<meta property="og:image" content="https://gurevnind.ru/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Массовые операции по филиальной сети — фича · Дмитрий Гуревнин">
+<meta name="twitter:description" content="Фича корпоративной платформы: автоматизация массовых операций по филиальной сети.">
+<meta name="twitter:image" content="https://gurevnind.ru/og.png">
+<style>body{margin:0;background:#fff;color:#111113;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue","Noto Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{color:#1B44E0}dc-if,dc-for{display:contents}dc-if[hidden]{display:none!important}img{max-width:100%}:focus-visible{outline:2px solid #1B44E0;outline-offset:2px}button[aria-label="Слайд"]{position:relative}button[aria-label="Слайд"]::before{content:"";position:absolute;inset:-9px -3px}.h1:hover{color:#111113!important}.h2:hover{color:#111113!important}.h3:hover{color:#111113!important}.h4:hover{transform:translateY(-2px)!important;box-shadow:0 2px 4px rgba(17,17,19,.06),0 20px 56px rgba(17,17,19,.12)!important;color:#fff!important}.h5:hover{opacity:.65!important}.h6:hover{transform:translateY(-2px)!important;box-shadow:0 16px 40px rgba(108,108,116,.10)!important;color:#111113!important}.h7:hover{transform:translateY(-2px)!important;box-shadow:0 16px 40px rgba(108,108,116,.10)!important;color:#111113!important}.h8:hover{transform:translateY(-2px)!important;box-shadow:0 2px 4px rgba(17,17,19,.06),0 20px 56px rgba(17,17,19,.12)!important;color:#fff!important}.h9:hover{border-color:#111113!important;color:#111113!important}.h10:hover{color:#1B44E0!important}</style>
+</head>
+<body>
+<div style="background:#fff;color:#111113;font-size:16px;line-height:1.5;overflow-x:clip">
+
+  <header style="position:sticky;top:0;z-index:100;transition:background-color .35s ease,backdrop-filter .35s ease,box-shadow .35s ease;background:var(--v-headerBg);backdrop-filter:var(--v-headerBlur);-webkit-backdrop-filter:var(--v-headerBlur);box-shadow:var(--v-headerShadow)">
+    <div style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);display:flex;align-items:center;justify-content:space-between;gap:12px 16px;min-height:var(--v-hdrH);padding-block:8px;flex-wrap:wrap">
+      <nav aria-label="Хлебные крошки" style="display:flex;align-items:center;gap:8px;font-size:15px;color:#6c6c74;min-width:0;flex-wrap:wrap">
+        <a class="h1" href="/" style="color:#6c6c74;white-space:nowrap">Главная</a>
+        <span aria-hidden="true" style="color:#c9c9cd">/</span>
+        <a class="h2" href="/cases/sber-platform/" style="color:#6c6c74;white-space:nowrap">Платформа</a>
+        <dc-if data-if="fromFeature" hidden>
+          <span style="display:inline-flex;align-items:center;gap:8px">
+            <span aria-hidden="true" style="color:#c9c9cd">/</span>
+            <a class="h3" style="color:#6c6c74;white-space:nowrap" data-a="href:prevHref"><span data-t="prevLabel" style="display:contents"></span></a>
+          </span>
+        </dc-if>
+        <span aria-hidden="true" style="color:#c9c9cd">/</span>
+        <span style="color:#111113;white-space:nowrap">Массовые операции</span>
+      </nav>
+      <nav style="display:flex;align-items:center;gap:clamp(12px,1.6vw,28px)">
+        <a href="mailto:gurevnind@gmail.com" style="display:var(--v-mobHide);font-size:16px;padding:6px 2px;color:#111113">Email</a>
+        <a class="h4" href="https://t.me/gurevnind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:var(--v-tgH);padding:var(--v-tgPad);border-radius:999px;color:#fff;font-size:16px;font-weight:500;background:var(--v-accent);white-space:nowrap;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s cubic-bezier(.22,.61,.36,1)">
+          <span data-t="tgLabel" style="display:contents"></span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(40px,6vw,96px)">
+    <p style="margin:0 0 clamp(20px,2.4vw,32px);font-size:clamp(14px,1.1vw,17px);color:#6c6c74">Функция платформы · Сбер · корпоративные данные</p>
+    <h1 style="margin:0;max-width:22ch;font-size:clamp(32px,6.4vw,104px);line-height:.99;letter-spacing:-.04em;font-weight:600;text-wrap:pretty">Автоматизация массовых операций по филиальной сети</h1>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,80px);margin-top:clamp(32px,4vw,64px);align-items:start">
+      <p style="margin:0;max-width:46ch;font-size:clamp(18px,1.5vw,24px);line-height:1.45;letter-spacing:-.012em;text-wrap:pretty">Перевёл ручную обработку 25–30 юрлиц в одну управляемую массовую операцию: <strong style="font-weight:600">3,5 часа → 10 минут</strong>.</p>
+      <p style="margin:0;max-width:46ch;font-size:clamp(18px,1.5vw,24px);line-height:1.45;letter-spacing:-.012em;text-wrap:pretty">Полную автоматизацию согласовать не удалось — требования безопасности запрещали изменение критичных данных без явного подтверждения, поэтому проектировал не «одну кнопку», а контролируемый сценарий.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(20px,2.4vw,40px);margin-top:clamp(40px,5vw,80px);padding-top:clamp(28px,3.4vw,48px);border-top:1px solid #e4e4e8">
+      <div>
+        <div style="font-size:clamp(28px,4vw,64px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">3,5 ч → 10 мин</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">обработка филиальной сети</p>
+      </div>
+      <div>
+        <div style="font-size:clamp(28px,4vw,64px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">25–30</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">юрлиц в одной операции</p>
+      </div>
+      <div>
+        <div style="font-size:clamp(28px,4vw,64px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">0</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">пропущенных филиалов — исключено логикой</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(40px,5vw,80px)">
+    <figure style="margin:0">
+      <div style="position:relative;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)" data-on="mouseenter:cIn;mouseleave:cOut">
+        <div style="overflow:hidden">
+          <div data-track style="display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform;transform:translate3d(var(--v-cT),0,0)">
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-search.webp" alt="Распространение банкротства — поиск по ИНН" draggable="false" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-search-960.webp 960w, /assets/bulk-search-1600.webp 1600w, /assets/bulk-search.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" fetchpriority="high" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-cover.webp" alt="Распространение банкротства — поиск головных организаций" draggable="false" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-cover-960.webp 960w, /assets/bulk-cover-1600.webp 1600w, /assets/bulk-cover.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-spread.webp" alt="Сайдпейдж распространения банкротства" draggable="false" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1283" srcset="/assets/bulk-spread-960.webp 960w, /assets/bulk-spread-1600.webp 1600w, /assets/bulk-spread.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-step4.webp" alt="Сайдпейдж с данными о банкротстве и числом организаций" draggable="false" data-full="/assets/bulk-step4-full.webp" data-ratio="1.3438" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-step4-960.webp 960w, /assets/bulk-step4-1600.webp 1600w, /assets/bulk-step4.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-step5.webp" alt="Подтверждение распространения по филиальной сети" draggable="false" data-full="/assets/bulk-step5-full.webp" data-ratio="1.3361" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-step5-960.webp 960w, /assets/bulk-step5-1600.webp 1600w, /assets/bulk-step5.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-step6.webp" alt="Прогресс распространения" draggable="false" data-full="/assets/bulk-step6-full.webp" data-ratio="1.4191" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-step6-960.webp 960w, /assets/bulk-step6-1600.webp 1600w, /assets/bulk-step6.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            <div style="flex:0 0 100%;min-width:0">
+              <div style="aspect-ratio:2560/1282;background:#fff">
+                <img src="/assets/bulk-step7.webp" alt="Итог: распространено и не удалось распространить" draggable="false" data-full="/assets/bulk-step7-full.webp" data-ratio="1.3306" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-step7-960.webp 960w, /assets/bulk-step7-1600.webp 1600w, /assets/bulk-step7.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        <span style="position:absolute;top:clamp(12px,1.6vw,24px);left:clamp(12px,1.6vw,24px);padding:8px 14px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);font-size:14px;font-variant-numeric:tabular-nums;color:#111113"><span data-t="cCur" style="display:contents"></span>&nbsp;/&nbsp;07</span>
+        <div style="position:absolute;top:clamp(12px,1.6vw,24px);right:clamp(12px,1.6vw,24px);display:flex;gap:8px">
+          <button aria-label="Предыдущий слайд" style="width:45px;height:45px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#111113" data-on="click:cPrev"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <button aria-label="Следующий слайд" style="width:45px;height:45px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#111113" data-on="click:cNext"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px;justify-content:center;padding:16px 0 0">
+        <dc-for data-for="cDots" data-as="d"><template>
+          <button aria-label="Слайд" style="height:6px;width:var(--i-w);border:0;padding:0;border-radius:999px;background:var(--i-bg);cursor:pointer;transition:width .3s,background .3s" data-on="click:d.on"></button>
+        </template></dc-for>
+      </div>
+      <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Сценарий распространения банкротства по филиальной сети. На скринах — тестовые данные</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,9vw,160px)">
+    <h2 style="margin:0;font-size:clamp(32px,4.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600">Проблема</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,64px);margin-top:clamp(20px,2.4vw,32px);align-items:start">
+      <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Компании одной филиальной сети связаны общим ИНН. Если банкротом признавался один филиал, статус нужно было проставить всем остальным — вручную, по одной карточке.</p>
+      <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;color:#6c6c74;text-wrap:pretty">По оценке менеджеров, на компанию уходило ~8 минут, в сети — 25–30 компаний. Сценарий повторяющийся, полностью механический и при этом с высокой ценой ошибки: пропущенный филиал означает, что банк принимает финансовое решение по компании с неактуальным статусом банкротства.</p>
+    </div>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,9vw,160px)">
+    <h2 style="margin:0;font-size:clamp(32px,4.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600">Было → стало</h2>
+    <div style="margin-top:clamp(28px,3.4vw,56px);display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)">
+      <div style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:clamp(16px,2vw,24px)">
+        <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.4;font-weight:600">Действия пользователя</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,32px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:#9a9aa3">Было</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">25–30 раз повторить один сценарий</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">Стало</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5">Ввод ИНН → проверка списка → подтверждение</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:clamp(16px,2vw,24px)">
+        <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.4;font-weight:600">Время</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,32px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:#9a9aa3">Было</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">~3,5 часа</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">Стало</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5">~10 минут</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:clamp(16px,2vw,24px)">
+        <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.4;font-weight:600">Контроль</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,32px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:#9a9aa3">Было</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">Нет сводной картины, что уже обработано</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">Стало</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5">Список затрагиваемых компаний до применения и прогресс после</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px);display:flex;flex-direction:column;gap:clamp(16px,2vw,24px)">
+        <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.4;font-weight:600">Риск пропуска филиала</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2vw,32px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:#9a9aa3">Было</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">Высокий, зависит от внимательности</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">Стало</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5">Исключён на уровне логики</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <figure style="margin:clamp(28px,3.4vw,56px) 0 0">
+      <div style="border-radius:24px;overflow:hidden;aspect-ratio:2560/1283;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+        <img src="/assets/bulk-spread.webp" alt="Сайдпейдж распространения банкротства на филиальную сеть" draggable="false" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1283" srcset="/assets/bulk-spread-960.webp 960w, /assets/bulk-spread-1600.webp 1600w, /assets/bulk-spread.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+      </div>
+      <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Схема сценария до и после</figcaption>
+    </figure>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,9vw,160px)">
+    <h2 style="margin:0;font-size:clamp(32px,4.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600">Результат</h2>
+    <ul style="margin:clamp(28px,3.4vw,56px) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)">
+      <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px)">
+        <span style="font-size:clamp(28px,3vw,46px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">~3,5 ч → ~10 мин</span>
+        <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Время обработки филиальной сети — по оценкам менеджеров на интервью</p>
+      </li>
+      <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px)">
+        <span style="font-size:clamp(28px,3vw,46px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">20 раз в месяц</span>
+        <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Частота сценария — суммарная экономия по подразделению ~66 часов в месяц</p>
+      </li>
+      <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,40px)">
+        <span style="font-size:clamp(28px,3vw,46px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">Пропуски</span>
+        <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Обращений в поддержку по расхождению статусов не поступало за 4 месяца</p>
+      </li>
+    </ul>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,9vw,160px)">
+    <h2 style="margin:0;font-size:clamp(32px,4.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600">Роль</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(28px,3.4vw,56px)">
+      <article style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:clamp(20px,1.7vw,30px);line-height:1.2;letter-spacing:-.02em;font-weight:600">Я</h3>
+        <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:48ch">Проектировал сценарий целиком — от точки входа до обработки ошибок, защищал решение перед безопасностью, вёл его до релиза.</p>
+      </article>
+      <article style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:14px">
+        <h3 style="margin:0;font-size:clamp(20px,1.7vw,30px);line-height:1.2;letter-spacing:-.02em;font-weight:600">Команда</h3>
+        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:48ch">
+          <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Системный аналитик — логика связей по ИНН</li>
+          <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Бэкенд — пакетная обработка</li>
+          <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Отдел безопасности — согласование модели подтверждения</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(48px,6vw,96px)">
+    <div style="border-top:1px solid #e4e4e8;border-bottom:1px solid #e4e4e8">
+      <button class="h5" style="width:100%;background:transparent;border:0;padding:clamp(28px,3.4vw,48px) 0;display:flex;align-items:center;justify-content:space-between;gap:24px;cursor:pointer;text-align:left;color:#111113;font-family:inherit;transition:opacity .25s" data-on="click:toggle" data-a="aria-expanded:expanded">
+        <span style="display:flex;flex-direction:column;gap:10px">
+          <span style="font-size:clamp(32px,4.4vw,68px);line-height:1.02;letter-spacing:-.035em;font-weight:600">Как я к этому пришёл</span>
+          <span style="font-size:clamp(15px,1.15vw,18px);color:#6c6c74;font-weight:400">Ход работы и где пришлось уступить</span>
+        </span>
+        <span style="width:52px;height:52px;flex:none;border-radius:999px;background:#f4f4f5;display:inline-flex;align-items:center;justify-content:center;transition:transform .4s cubic-bezier(.22,.61,.36,1);transform:rotate(var(--v-rot))">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </button>
+      <div style="display:grid;transition:grid-template-rows .55s cubic-bezier(.22,.61,.36,1),opacity .45s;grid-template-rows:var(--v-bodyRows);opacity:var(--v-bodyO)">
+        <div style="overflow:hidden;min-height:0">
+          <div style="padding-bottom:clamp(40px,5vw,80px);display:flex;flex-direction:column;gap:clamp(40px,5vw,80px)">
+
+            <div>
+              <h3 style="margin:0 0 clamp(16px,2vw,24px);font-size:clamp(22px,2vw,34px);line-height:1.15;letter-spacing:-.022em;font-weight:600">Ограничения</h3>
+              <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:64ch">
+                <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Массовое изменение критичных данных не может выполняться «в один клик» — прямое требование безопасности</li>
+                <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Изменения необратимы на уровне системы: отката пакетной операции не предусмотрено</li>
+                <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Состав филиальной сети на момент операции пользователь должен видеть до применения, а не после</li>
+                <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i><span>Срок — 3 недели</span></li>
+              </ul>
+            </div>
+
+            <article>
+              <p style="margin:0 0 12px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">Решение 1</p>
+              <h3 style="margin:0 0 clamp(16px,2vw,24px);max-width:30ch;font-size:clamp(24px,2.6vw,40px);line-height:1.08;letter-spacing:-.026em;font-weight:600;text-wrap:pretty">Точка входа: система предлагает, а не пользователь ищет</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,48px);align-items:start">
+                <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);max-width:52ch">
+                  <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;text-wrap:pretty"><strong style="font-weight:600">Было:</strong> массовой операции не существовало, менеджер сам держал в голове, что филиалы надо обойти.</p>
+                  <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;text-wrap:pretty"><strong style="font-weight:600">Выбрал автопредложение при работе с ИНН:</strong> пользователь не должен помнить о существовании функции. Он вводит ИНН в своём обычном сценарии — система обнаруживает банкротство хотя бы у одного филиала и предлагает распространить статус.</p>
+                </div>
+                <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+                  <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Альтернативы</p>
+                  <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+                    <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Отдельный раздел «Массовые операции» — обнаруживается только теми, кто про него знает; сценарий возникает по факту обнаружения банкротства, а не по плану</li>
+                    <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Действие в карточке компании — привязывает массовую операцию к одному филиалу, что концептуально неверно</li>
+                  </ul>
+                  <p style="margin:0;font-size:14px;line-height:1.55;color:#6c6c74;border-top:1px solid #e4e4e8;padding-top:16px;text-wrap:pretty">Проверка: опрос и сбор обратной связи, 12 участников</p>
+                </div>
+              </div>
+            </article>
+
+            <article>
+              <p style="margin:0 0 12px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">Решение 2</p>
+              <h3 style="margin:0 0 clamp(16px,2vw,24px);max-width:30ch;font-size:clamp(24px,2.6vw,40px);line-height:1.08;letter-spacing:-.026em;font-weight:600;text-wrap:pretty">Контроль вместо скорости</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,48px);align-items:start">
+                <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);max-width:52ch">
+                  <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;text-wrap:pretty"><strong style="font-weight:600">Было:</strong> запрос на полную автоматизацию — обнаружили банкротство, разослали по сети без участия человека.</p>
+                  <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;text-wrap:pretty"><strong style="font-weight:600">Выбрал боковую панель</strong> с полным списком затрагиваемых компаний и возможностью отредактировать данные перед применением. Требование безопасности превращается из препятствия в полезный шаг: пользователь впервые видит филиальную сеть целиком — того, чего у него не было и в ручном сценарии.</p>
+                </div>
+                <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+                  <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Альтернативы</p>
+                  <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+                    <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Мгновенное применение с undo — откат пакетной операции технически не поддерживается, а данные критичны для финансовых решений</li>
+                    <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Модальное «Подтвердить?» с числом компаний — формально закрывает требование, но пользователь подтверждает вслепую</li>
+                  </ul>
+                  <p style="margin:0;font-size:14px;line-height:1.55;color:#6c6c74;border-top:1px solid #e4e4e8;padding-top:16px;text-wrap:pretty">Проверка: модерируемое коридорное тестирование, 7 участников — по итогам остановился на окне с информацией о филиалах, на которые будет распространено банкротство</p>
+                </div>
+              </div>
+            </article>
+
+            <article>
+              <p style="margin:0 0 12px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">Решение 3</p>
+              <h3 style="margin:0 0 clamp(16px,2vw,24px);max-width:30ch;font-size:clamp(24px,2.6vw,40px);line-height:1.08;letter-spacing:-.026em;font-weight:600;text-wrap:pretty">Прозрачность выполнения</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,48px);align-items:start">
+                <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Массовая операция без обратной связи — источник тревоги: пользователь не знает, применилось ли всё. Спроектировал отображение прогресса с количеством обработанных компаний.</p>
+                <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;color:#6c6c74;text-wrap:pretty">По итогам операции показывается окно со сводкой: сколько компаний обработано успешно и где возникли ошибки. Для каждой компании с ошибкой можно посмотреть её причину, исправить данные вручную и повторить распространение.</p>
+              </div>
+              <figure style="margin:clamp(20px,2.4vw,32px) 0 0">
+                <div style="border-radius:24px;overflow:hidden;aspect-ratio:2560/1282;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+                  <img src="/assets/bulk-step6.webp" alt="Прогресс распространения банкротства" draggable="false" data-full="/assets/bulk-step6-full.webp" data-ratio="1.4191" style="display:block;width:100%;height:100%;object-fit:cover;cursor:zoom-in" width="2560" height="1282" srcset="/assets/bulk-step6-960.webp 960w, /assets/bulk-step6-1600.webp 1600w, /assets/bulk-step6.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async" data-on="click:openShot">
+                </div>
+                <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Прогресс выполнения с количеством обработанных компаний</figcaption>
+              </figure>
+            </article>
+
+            <article style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(20px,3vw,48px);align-items:start">
+              <h3 style="margin:0;font-size:clamp(22px,2vw,34px);line-height:1.15;letter-spacing:-.022em;font-weight:600">Компромисс</h3>
+              <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px);font-size:clamp(15px,1.15vw,19px);line-height:1.55;color:#6c6c74;max-width:60ch">
+                <p style="margin:0;text-wrap:pretty">Изначально я защищал полную автоматизацию: система сама обнаруживает банкротство и разносит статус по сети без участия человека — это дало бы не 10 минут, а ноль.</p>
+                <p style="margin:0;text-wrap:pretty">Безопасность требование отклонила: массовое необратимое изменение критичных данных не должно происходить без явного подтверждения оператора. Я не стал искать обход и переработал сценарий в полуавтоматический — с обязательным просмотром списка и подтверждением.</p>
+                <p style="margin:0;text-wrap:pretty">Сейчас считаю, что это верно, и не только из-за регламента. Изменение необратимо: отката пакетной операции нет, поэтому ошибку нельзя просто отменить. Цена шага подтверждения — минуты. Цена ошибочного массового изменения — некорректные финансовые решения по всей сети.</p>
+              </div>
+            </article>
+
+            <div>
+              <h3 style="margin:0 0 clamp(16px,2vw,24px);font-size:clamp(22px,2vw,34px);line-height:1.15;letter-spacing:-.022em;font-weight:600">Проверка</h3>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,1.7vw,32px)">
+                <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:12px">
+                  <span style="font-size:14px;color:var(--v-accent);font-weight:500">До релиза</span>
+                  <span style="font-size:15px;line-height:1.55;color:#6c6c74">Коридорное тестирование, 7 участников — по результатам добавили в окно информацию о компаниях</span>
+                </div>
+                <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:12px">
+                  <span style="font-size:14px;color:var(--v-accent);font-weight:500">После релиза</span>
+                  <span style="font-size:15px;line-height:1.55;color:#6c6c74">Опрос менеджеров, 12 человек — время оценивали сами пользователи</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,8vw,128px)">
+    <h2 style="margin:0 0 clamp(24px,3vw,40px);font-size:clamp(22px,2vw,30px);line-height:1.2;letter-spacing:-.02em;font-weight:600">Другие фичи</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(16px,1.7vw,32px)">
+      <a class="h6" href="/cases/sber-platform/client-form/" style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:14px;transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s">
+        <h3 style="margin:0;font-size:clamp(20px,1.7vw,28px);line-height:1.2;letter-spacing:-.02em;font-weight:600">Форма создания клиента: поля, которые нельзя убрать</h3>
+        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;padding-top:16px">
+          Смотреть
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </a>
+      <a class="h7" href="/cases/sber-platform/data-domains/" style="background:#f4f4f5;border-radius:32px;padding:clamp(24px,3vw,48px);display:flex;flex-direction:column;gap:14px;transition:transform .45s cubic-bezier(.22,.61,.36,1),box-shadow .45s">
+        <h3 style="margin:0;font-size:clamp(20px,1.7vw,28px);line-height:1.2;letter-spacing:-.02em;font-weight:600">Управление доменами данных и AI-пространство</h3>
+        <span style="margin-top:auto;display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:500;padding-top:16px">
+          Смотреть
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(48px,6vw,96px)">
+    <div style="background:#f4f4f5;border-radius:32px;padding:clamp(28px,4vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,48px);align-items:center">
+      <div>
+        <h2 style="margin:0 0 12px;font-size:clamp(28px,3.2vw,48px);line-height:1.08;letter-spacing:-.028em;font-weight:600;text-wrap:pretty">Расскажу детали, которые не попали в описание</h2>
+        <p style="margin:0;max-width:44ch;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">Про согласование с безопасностью, обработку ошибок и то, что осталось за кадром.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-self:end">
+        <a class="h8" href="https://t.me/gurevnind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:var(--v-tgH);padding:var(--v-tgPad);border-radius:999px;color:#fff;font-size:16px;font-weight:500;background:var(--v-accent);transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s">
+          <span data-t="tgLabel" style="display:contents"></span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+        <a class="h9" href="/cases/sber-platform/" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 26px;border-radius:999px;border:1px solid #dededf;font-size:16px;font-weight:500;color:#111113;transition:border-color .25s">К кейсу</a>
+      </div>
+    </div>
+  </section>
+
+  <footer style="border-top:1px solid #e4e4e8;margin-top:clamp(56px,7vw,120px)">
+    <div style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);min-height:96px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#6c6c74">
+      <span>© dmitry gurevnin, 2026</span>
+      <a class="h10" href="#top" aria-label="Наверх" style="position:fixed;right:clamp(16px,2.4vw,40px);bottom:clamp(16px,2.4vw,40px);z-index:200;width:52px;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#111113;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.12);transition:opacity .3s,transform .3s;opacity:var(--v-topOpacity);pointer-events:var(--v-topEvents);transform:translateY(var(--v-topShift))" data-on="click:toTop">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </footer>
+</div>
+
+  <dc-if data-if="zoomOpen" hidden>
+    <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:300;background:rgba(10,10,14,.86);backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:clamp(16px,3vw,48px)" data-on="click:closeZoom">
+      <div style="display:flex;align-items:center;gap:8px;align-self:stretch;justify-content:flex-end;max-width:1440px;width:100%;margin:0 auto" data-on="click:stop">
+        <button aria-label="Уменьшить" style="width:44px;height:44px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:20px;cursor:pointer" data-on="click:zoomOut">−</button>
+        <span style="min-width:56px;text-align:center;color:#fff;font-size:14px;font-variant-numeric:tabular-nums"><span data-t="zoomPct" style="display:contents"></span></span>
+        <button aria-label="Увеличить" style="width:44px;height:44px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:20px;cursor:pointer" data-on="click:zoomIn">+</button>
+        <button aria-label="Закрыть" style="width:44px;height:44px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;font-size:18px;cursor:pointer;margin-left:8px" data-on="click:closeZoom">✕</button>
+      </div>
+      <div data-ref="panRef" style="width:var(--v-zBoxW);aspect-ratio:var(--v-zBoxAR);height:var(--v-zBoxH);display:var(--v-zBoxDisp);flex:none;overflow:auto;border-radius:20px;background:#fff;cursor:var(--v-zoomCursor);user-select:none" data-on="click:stop;mousedown:panStart">
+        <span data-t="zoomImg" style="display:contents"></span>
+      </div>
+    </div>
+  </dc-if>
+<script src="/assets/site.0cfb4e09.js"></script>
+<script>window.DC_VARS=["accent", "bodyO", "bodyRows", "cT", "hdrH", "headerBg", "headerBlur", "headerShadow", "mobHide", "rot", "tgH", "tgPad", "topEvents", "topOpacity", "topShift", "zBoxAR", "zBoxDisp", "zBoxH", "zBoxW", "zoomCursor"];
+class Component extends DCLogic {
+  state = { open: null, scrolled: false, fromFeature: false, prevLabel: '', prevHref: '', ci: 0 };
+  cN = 7; cTouched = 0; cHovered = false;
+  cGo(n) { this.cTouched = Date.now(); this.setState({ ci: ((n % this.cN) + this.cN) % this.cN }); }
+
+  isOpen() { return this.state.open ?? (this.props.detailsOpenByDefault ?? false); }
+
+  componentDidMount() {
+    this.cAuto = setInterval(() => {
+      if (this.state.zoom || document.hidden || this.cHovered || Date.now() - this.cTouched < 5000) return;
+      this.setState(s => ({ ci: (s.ci + 1) % this.cN }));
+    }, 5000);
+    this.onMob = () => { const m = window.innerWidth < 640; if (m !== !!this.state.mob) this.setState({ mob: m }); };
+    this.onMob();
+    window.addEventListener('resize', this.onMob);
+    this.onScroll = () => {
+      const upT = window.scrollY > 600;
+      if (upT !== !!this.state.showTop) this.setState({ showTop: upT });
+      const s = window.scrollY > 12;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    const names = { 'client-form': 'Форма клиента', 'data-domains': 'Домены данных', 'bulk-operations': 'Массовые операции' };
+    let ref = '';
+    try { ref = decodeURIComponent(document.referrer || ''); } catch (e) { ref = document.referrer || ''; }
+    const here = decodeURIComponent(location.href).split(/[?#]/)[0];
+    const m = ref.match(/\/cases\/sber-platform\/([\w-]+)\/?(?:[?#]|$)/);
+    if (m && names[m[1]] && ref.split(/[?#]/)[0] !== here) {
+      this.setState({ fromFeature: true, prevLabel: names[m[1]], prevHref: '/cases/sber-platform/' + m[1] + '/' });
+    }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.cAuto);
+    window.removeEventListener('resize', this.onMob);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  renderVals() {
+    const z = this.state.zoom, zs = this.state.zscale ?? 1;
+    if (!this._zi) {
+      this.panRef = React.createRef();
+      this.onZKey = (e) => { if (e.key === 'Escape') this.setState({ zoom: null }); };
+      window.addEventListener('keydown', this.onZKey);
+      this._zi = true;
+    }
+    const open = this.isOpen();
+    const sc = this.state.scrolled;
+    const back = this.state.fromFeature;
+    return {
+      zoomOpen: !!z,
+      zBoxW: this.state.mob ? '100%' : ((this.state.zratio ?? 16 / 9) < 1 ? 'min(1200px,100%)' : `min(1440px,100%,calc(78vh * ${(this.state.zratio ?? 16 / 9)}))`),
+      zBoxAR: this.state.mob || (this.state.zratio ?? 16 / 9) < 1 ? 'auto' : String((this.state.zratio ?? 16 / 9)),
+      zBoxDisp: this.state.mob ? 'flex' : 'block',
+      zBoxH: this.state.mob ? 'calc(100dvh - 120px)' : ((this.state.zratio ?? 16 / 9) < 1 ? 'calc(100vh - 140px)' : 'auto'),
+      zoomImg: (z) ? (this.state.mob ? (() => {
+        const r = (this.state.zratio ?? 16 / 9), k = zs;
+        const L = `min(calc(100dvh - 120px), calc((100vw - 32px) * ${r}))`;
+        return React.createElement('div', { style: { position: 'relative', flex: 'none', margin: 'auto', width: `calc(${L} / ${r} * ${k})`, height: `calc(${L} * ${k})`, transition: 'width .3s, height .3s' } },
+          React.createElement('img', { src: z, alt: '', draggable: false, style: { position: 'absolute', left: '50%', top: '50%', width: `calc(${L} * ${k})`, height: `calc(${L} / ${r} * ${k})`, maxWidth: 'none', transform: 'translate(-50%,-50%) rotate(90deg)', background: '#fff', transition: 'width .3s, height .3s' } }));
+      })() : React.createElement('img', { src: z, alt: '', draggable: false, style: { display: 'block', width: (zs * 100) + '%', height: 'auto', background: '#fff', transition: 'width .3s cubic-bezier(.22,.61,.36,1)' } })) : null,
+      zoomPct: Math.round(zs * 100) + '%',
+      zoomCursor: zs > 1 ? 'grab' : 'default',
+      panRef: this.panRef,
+      openShot: (e) => { e.stopPropagation(); e.preventDefault(); const im = e.currentTarget; const full = im.getAttribute('data-full'); const r = im.naturalWidth ? im.naturalWidth / im.naturalHeight : 16 / 9; this.setState({ zoom: full || im.getAttribute('src'), zratio: full ? (Number(im.getAttribute('data-ratio')) || r) : r, zscale: 1 }); },
+      closeZoom: () => this.setState({ zoom: null, zscale: 1 }),
+      stop: (e) => e.stopPropagation(),
+      zoomIn: (e) => { e.stopPropagation(); this.setState(s => ({ zscale: Math.min(3, (s.zscale ?? 1) + 0.5) })); },
+      zoomOut: (e) => { e.stopPropagation(); this.setState(s => ({ zscale: Math.max(1, (s.zscale ?? 1) - 0.5) })); },
+      panStart: (e) => {
+        const el = this.panRef.current; if (!el || zs <= 1) return;
+        e.preventDefault();
+        const sx = e.clientX, sy = e.clientY, l = el.scrollLeft, tp = el.scrollTop;
+        el.style.cursor = 'grabbing';
+        const mv = (ev) => { el.scrollLeft = l - (ev.clientX - sx); el.scrollTop = tp - (ev.clientY - sy); };
+        const up = () => { el.style.cursor = ''; window.removeEventListener('mousemove', mv); window.removeEventListener('mouseup', up); };
+        window.addEventListener('mousemove', mv); window.addEventListener('mouseup', up);
+      },
+
+      cT: (-(this.state.ci ?? 0) * 100) + '%',
+      cCur: String((this.state.ci ?? 0) + 1).padStart(2, '0'),
+      cPrev: () => this.cGo((this.state.ci ?? 0) - 1),
+      cNext: () => this.cGo((this.state.ci ?? 0) + 1),
+      cIn: () => { this.cHovered = true; },
+      cOut: () => { this.cHovered = false; this.cTouched = Date.now(); },
+      cDots: [0, 1, 2, 3, 4, 5, 6].map(k => ({ w: k === (this.state.ci ?? 0) ? '24px' : '6px', bg: k === (this.state.ci ?? 0) ? '#111113' : '#d4d4d8', on: () => this.cGo(k) })),
+      tgLabel: this.state.mob ? 'TG' : 'Написать в TG',
+      tgH: this.state.mob ? '44px' : '52px',
+      tgPad: this.state.mob ? '0 18px' : '0 26px',
+      mobHide: this.state.mob ? 'none' : 'inline',
+      hdrH: this.state.mob ? '60px' : '72px',
+      topOpacity: this.state.showTop ? 1 : 0,
+      topEvents: this.state.showTop ? 'auto' : 'none',
+      topShift: this.state.showTop ? '0' : '12px',
+      toTop: (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      accent: this.props.accentColor ?? '#1B44E0',
+      headerBg: sc ? 'rgba(255,255,255,.6)' : 'transparent',
+      headerBlur: sc ? 'saturate(160%) blur(12px)' : 'blur(0px)',
+      headerShadow: sc ? '0 1px 0 rgba(17,17,19,.06)' : 'none',
+      fromFeature: this.state.fromFeature,
+      prevLabel: this.state.prevLabel,
+      prevHref: this.state.prevHref,
+      toggle: () => this.setState({ open: !open }),
+      expanded: open ? 'true' : 'false',
+      rot: open ? '180deg' : '0deg',
+      bodyRows: open ? '1fr' : '0fr',
+      bodyO: open ? 1 : 0
+    };
+  }
+}
+DC.mount(Component,{"accentColor": "#1B44E0", "detailsOpenByDefault": false});</script>
+</body>
+</html>

@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Корпоративная платформа клиентских данных — кейс · Дмитрий Гуревнин</title>
+<meta name="description" content="Кейс: корпоративная банковская платформа для работы с данными корпоративных клиентов Сбера — 30 000+ пользователей ежедневно.">
+<link rel="canonical" href="https://gurevnind.ru/cases/sber-platform/">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Дмитрий Гуревнин">
+<meta property="og:title" content="Корпоративная платформа клиентских данных — кейс · Дмитрий Гуревнин">
+<meta property="og:description" content="Кейс: корпоративная банковская платформа для работы с данными корпоративных клиентов Сбера — 30 000+ пользователей ежедневно.">
+<meta property="og:url" content="https://gurevnind.ru/cases/sber-platform/">
+<meta property="og:image" content="https://gurevnind.ru/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Корпоративная платформа клиентских данных — кейс · Дмитрий Гуревнин">
+<meta name="twitter:description" content="Кейс: корпоративная банковская платформа для работы с данными корпоративных клиентов Сбера — 30 000+ пользователей ежедневно.">
+<meta name="twitter:image" content="https://gurevnind.ru/og.png">
+<style>html{scroll-behavior:smooth}body{margin:0;background:#fff;color:#111113;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue","Noto Sans",Arial,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{color:#1B44E0}dc-if,dc-for{display:contents}dc-if[hidden]{display:none!important}img{max-width:100%}:focus-visible{outline:2px solid #1B44E0;outline-offset:2px}button[aria-label="Слайд"]{position:relative}button[aria-label="Слайд"]::before{content:"";position:absolute;inset:-9px -3px}.h1:hover{color:#111113!important}.h2:hover{transform:translateY(-2px)!important;box-shadow:0 2px 4px rgba(17,17,19,.06),0 20px 56px rgba(17,17,19,.12)!important;color:#fff!important}.h3:hover{transform:scale(1.08)!important}.h4:hover{transform:scale(1.08)!important}.h5:hover{background:#f4f4f5!important;color:#111113!important}.h6:hover{border-color:#111113!important;transform:translateY(-2px)!important;color:#111113!important}.h7:hover{border-color:#111113!important;transform:translateY(-2px)!important;color:#111113!important}.h8:hover{border-color:#111113!important;transform:translateY(-2px)!important;color:#111113!important}.h9:hover{border-color:#111113!important;color:#111113!important}.h10:hover{transform:translateY(-2px)!important;box-shadow:0 2px 4px rgba(17,17,19,.06),0 20px 56px rgba(17,17,19,.12)!important;color:#fff!important}.h11:hover{background:rgba(255,255,255,.26)!important}.h12:hover{background:rgba(255,255,255,.26)!important}.h13:hover{background:rgba(255,255,255,.26)!important}.h14:hover{color:#1B44E0!important}</style>
+</head>
+<body>
+<div style="background:#fff;color:#111113;font-size:16px;line-height:1.5;overflow-x:clip">
+
+  <header style="position:sticky;top:0;z-index:100;transition:background-color .35s ease,backdrop-filter .35s ease,box-shadow .35s ease;background:var(--v-headerBg);backdrop-filter:var(--v-headerBlur);-webkit-backdrop-filter:var(--v-headerBlur);box-shadow:var(--v-headerShadow)">
+    <div style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);display:flex;align-items:center;justify-content:space-between;gap:12px 16px;min-height:var(--v-hdrH);padding-block:8px;flex-wrap:wrap">
+      <a class="h1" href="/" style="display:inline-flex;align-items:center;gap:9px;font-size:15px;color:#6c6c74;white-space:nowrap">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4L3 8l4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        На главную
+      </a>
+      <nav style="display:flex;align-items:center;gap:clamp(12px,1.6vw,28px)">
+        <a href="mailto:gurevnind@gmail.com" style="font-size:16px;padding:6px 2px;color:#111113">Email</a>
+        <a class="h2" href="https://t.me/gurevnind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:var(--v-tgH);padding:var(--v-tgPad);border-radius:999px;color:#fff;font-size:16px;font-weight:500;background:var(--v-accent);white-space:nowrap;transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s cubic-bezier(.22,.61,.36,1)">
+          <span data-t="tgLabel" style="display:contents"></span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="overview" style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(40px,6vw,96px);scroll-margin-top:96px">
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(20px,2.4vw,32px)">
+      <span style="display:inline-flex;align-items:center;height:36px;padding:0 15px;border-radius:999px;background:#f4f4f5;font-size:14px;color:#6c6c74">2024 → сейчас</span>
+      <span style="display:inline-flex;align-items:center;height:36px;padding:0 15px;border-radius:999px;background:#f4f4f5;font-size:14px;color:#6c6c74">B2E · Web</span>
+      <span style="display:inline-flex;align-items:center;height:36px;padding:0 15px;border-radius:999px;background:#f4f4f5;font-size:14px;color:#6c6c74">Старший продуктовый дизайнер</span>
+    </div>
+    <h1 style="margin:0;max-width:24ch;font-size:clamp(32px,6.4vw,104px);line-height:.99;letter-spacing:-.04em;font-weight:600;text-wrap:pretty">Корпоративная платформа для работы с клиентскими данными</h1>
+    <p style="margin:clamp(24px,3vw,40px) 0 0;max-width:62ch;font-size:clamp(18px,1.5vw,24px);line-height:1.45;letter-spacing:-.012em;text-wrap:pretty">Внутренний сервис Сбера: 30 000+ пользователей ежедневно. <br>Отвечал за архитектуру, ключевые сценарии и дизайн-команду. <br>Шесть систем объединены в одну, аудитория выросла в 15 раз.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:clamp(20px,2.4vw,40px);margin-top:clamp(40px,5vw,80px);padding-top:clamp(28px,3.4vw,48px);border-top:1px solid #e4e4e8">
+      <div>
+        <div style="font-size:clamp(32px,3.6vw,58px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">30 000+</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">пользователей ежедневно</p>
+      </div>
+      <div>
+        <div style="font-size:clamp(32px,3.6vw,58px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">×15</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">рост аудитории</p>
+      </div>
+      <div>
+        <div style="font-size:clamp(32px,3.6vw,58px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">6 → 1</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">систем объединено</p>
+      </div>
+      <div>
+        <div style="font-size:clamp(32px,3.6vw,58px);line-height:1;letter-spacing:-.035em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">78% → 84%</div>
+        <p style="margin:12px 0 0;font-size:clamp(15px,1.1vw,17px);color:#6c6c74">CSI</p>
+      </div>
+    </div>
+    <div style="margin:clamp(40px,5vw,80px) 0 0">
+      <div style="position:relative;border-radius:32px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+          <div style="position:absolute;top:clamp(16px,2vw,32px);left:clamp(16px,2vw,32px);z-index:2">
+            <span style="height:45px;padding:0 24px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);display:inline-flex;align-items:center;font-size:15px;font-weight:500;font-variant-numeric:tabular-nums"><span data-t="cc" style="display:contents"></span>&nbsp;/&nbsp;09</span>
+          </div>
+          <div style="position:absolute;top:clamp(16px,2vw,32px);right:clamp(16px,2vw,32px);display:flex;gap:8px;z-index:2">
+            <button class="h3" aria-label="Предыдущий слайд" style="width:45px;height:45px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#111113;transition:transform .25s;opacity:1" data-on="click:cPrev">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+            <button class="h4" aria-label="Следующий слайд" style="width:45px;height:45px;border-radius:999px;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.08);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:#111113;transition:transform .25s;opacity:1" data-on="click:cNext">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </button>
+          </div>
+  
+          <div style="overflow:hidden" data-on="mouseenter:cHoverIn;mouseleave:cHoverOut">
+            <div data-track style="display:flex;transition:transform .6s cubic-bezier(.22,.61,.36,1);will-change:transform;transform:translate3d(var(--v-cT),0,0)">
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/platform-main.webp" alt="Обзор платформы — главный экран" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;cursor:zoom-in" width="2890" height="1624" srcset="/assets/platform-main-960.webp 960w, /assets/platform-main-1600.webp 1600w, /assets/platform-main.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" fetchpriority="high" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/client-card.webp" alt="Карточка клиента" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:top;cursor:zoom-in" width="2890" height="1624" srcset="/assets/client-card-960.webp 960w, /assets/client-card-1600.webp 1600w, /assets/client-card.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/product-search.webp" alt="Продуктовый модуль — поиск продуктов клиента" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2890" height="1586" srcset="/assets/product-search-960.webp 960w, /assets/product-search-1600.webp 1600w, /assets/product-search.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/consents-search.webp" alt="Модуль согласий — поиск согласий клиента" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2890" height="1586" srcset="/assets/consents-search-960.webp 960w, /assets/consents-search-1600.webp 1600w, /assets/consents-search.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/gov-update.webp" alt="Госорганы — обновление данных юридических лиц" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2892" height="1586" srcset="/assets/gov-update-960.webp 960w, /assets/gov-update-1600.webp 1600w, /assets/gov-update.webp 2892w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff">
+                  <img src="/assets/counterparties-search.webp" alt="Контрагенты — поиск контрагентов" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2890" height="1586" srcset="/assets/counterparties-search-960.webp 960w, /assets/counterparties-search-1600.webp 1600w, /assets/counterparties-search.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff;overflow:hidden">
+                  <img src="/assets/counterparty-express.webp" alt="Контрагенты — экспресс-анализ" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2890" height="1586" srcset="/assets/counterparty-express-960.webp 960w, /assets/counterparty-express-1600.webp 1600w, /assets/counterparty-express.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff;overflow:hidden">
+                  <img src="/assets/counterparty-tenders.webp" alt="Контрагенты — тендеры и госзакупки" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2890" height="1584" srcset="/assets/counterparty-tenders-960.webp 960w, /assets/counterparty-tenders-1600.webp 1600w, /assets/counterparty-tenders.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+              <div style="flex:0 0 100%;min-width:0">
+                <div style="aspect-ratio:16/9;background:#fff;overflow:hidden">
+                  <img src="/assets/quick-search.webp" alt="Быстрый поиск" draggable="false" data-shot="" style="display:block;width:100%;height:auto;cursor:zoom-in" width="2892" height="1622" srcset="/assets/quick-search-960.webp 960w, /assets/quick-search-1600.webp 1600w, /assets/quick-search.webp 2892w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div style="display:flex;gap:6px;justify-content:center;padding:16px 0">
+            <dc-for data-for="cDots" data-as="d"><template>
+              <button aria-label="Слайд" style="height:6px;border:0;padding:0;cursor:pointer;border-radius:999px;transition:width .35s cubic-bezier(.22,.61,.36,1),background-color .35s;width:var(--i-w);background:var(--i-bg)" data-on="click:d.on"></button>
+            </template></dc-for>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <div style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(48px,6vw,96px);display:grid;grid-template-columns:var(--v-railCols);gap:clamp(32px,4vw,80px);align-items:start">
+
+    <nav aria-label="Разделы кейса" style="position:var(--v-navPos);top:96px;display:flex;flex-direction:var(--v-navDir);gap:var(--v-navGap);padding-bottom:var(--v-navPb);overflow-x:auto;white-space:nowrap;scrollbar-width:none;margin-inline:var(--v-navBleed);padding-inline:var(--v-navPadX)">
+      <dc-for data-for="nav" data-as="n"><template>
+        <a class="h5" style="display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;font-size:15px;line-height:1.35;transition:background-color .25s,color .25s;color:var(--i-color);background:var(--i-bg)" data-a="href:n.href">
+          <span style="font-variant-numeric:tabular-nums;font-size:13px;color:var(--i-num)"><span data-t="n.i" style="display:contents"></span></span>
+          <span data-t="n.label" style="display:contents"></span>
+        </a>
+      </template></dc-for>
+    </nav>
+
+    <main style="min-width:0;display:flex;flex-direction:column;gap:clamp(64px,8vw,128px)">
+
+      <section id="context" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">01 — Контекст</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Шесть систем, один сценарий и 12 ролей</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(20px,2.4vw,32px);align-items:start">
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Когда я пришёл, продукт покрывал часть сценариев, им пользовались ~2 000 человек. Задача — собрать функциональность в одно решение, стандартизировать сценарии и снизить порог входа.</p>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Ограничения</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Регуляторика: нельзя сокращать состав данных и шаги проверок</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Легаси с разными моделями данных и правами доступа</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>2 000 человек уже работают ежедневно — ломать привычное нельзя</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>12 ролей с разным уровнем доступа</li>
+            </ul>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(20px,2.4vw,32px);align-items:start;border-top:1px solid #e4e4e8;padding-top:clamp(20px,2.4vw,32px)">
+          <h3 style="margin:0;font-size:clamp(18px,1.4vw,24px);line-height:1.25;letter-spacing:-.018em;font-weight:600">Моя роль</h3>
+          <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:56ch">Информационная архитектура, ключевые сценарии, еженедельные интервью с&nbsp;пользователями, исследования и защита решений перед стейкхолдерами. Курировал двух дизайнеров.</p>
+        </div>
+      </section>
+
+      <section id="architecture" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">02 — Архитектура</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Как не утонуть в 30+ разделах</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(20px,2.4vw,32px);align-items:start">
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Шесть систем нельзя было «сложить» — получилось бы меню на 30 пунктов. Собрал структуру вокруг сущности «клиент»: верхний уровень — домены (клиенты, продукты, согласия, проверки), внутри — сценарии, а&nbsp;не&nbsp;разделы исходных систем.</p>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Отвергнутые варианты</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Плоское меню — 30 равнозначных пунктов</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Деление по исходным системам — переносит легаси в новый продукт</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Деление по частоте — структура меняется под каждую роль</li>
+            </ul>
+            <p style="margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.6;color:#8b8b94;border-top:1px solid #e4e4e8;padding-top:16px">Проверка: карточная сортировка, 20 участников — по итогам поменял уровни вложенности</p>
+          </div>
+        </div>
+        <figure style="margin:clamp(20px,2.4vw,32px) 0 0">
+          <div style="border-radius:24px;overflow:hidden;aspect-ratio:1445/812;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+            <img src="/assets/domains-nav.webp" alt="Навигация по доменам" data-shot="" style="display:block;width:100%;height:100%;object-fit:cover;cursor:zoom-in" width="2890" height="1624" srcset="/assets/domains-nav-960.webp 960w, /assets/domains-nav-1600.webp 1600w, /assets/domains-nav.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+          </div>
+          <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Итоговая структура: четыре домена, внутри — сценарии</figcaption>
+        </figure>
+      </section>
+
+      <section id="form" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">03 — Пример фичи</p>
+        <h2 style="margin:0;max-width:30ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600"><span style="white-space:nowrap">Форма создания клиента:</span><br><span style="white-space:nowrap">30 полей, которые нельзя убрать</span></h2>
+        <p style="margin:clamp(16px,2vw,24px) 0 0;max-width:56ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;text-wrap:pretty">Переработал структуру формы, не тронув ни одного поля — регуляторика не позволяла.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(28px,3.4vw,48px)">
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Проблема</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Все поля на одном экране, часть появляется динамически. Менеджер заполнял сверху вниз, в конце получал ошибку валидации и&nbsp;терял контекст.</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Корень</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Форма не отвечала на два вопроса: «сколько ещё осталось» и «что обязательно именно для этого клиента».</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Ограничение</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Состав полей продиктован регуляторикой: классический ход «сократить форму» не&nbsp;подходит. Задача — сделать длинную форму предсказуемой, не делая её короче.</p>
+          </article>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(28px,3.4vw,48px);align-items:start">
+          <div style="display:flex;flex-direction:column;gap:clamp(14px,1.6vw,20px)">
+            <h3 style="margin:0;font-size:clamp(18px,1.4vw,24px);line-height:1.25;letter-spacing:-.018em;font-weight:600">Решение</h3>
+            <ol style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">
+              <li style="display:flex;gap:12px"><span style="flex:none;color:var(--v-accent);font-weight:500">1</span>Форма разбита на логические секции, сгруппированные по источнику данных: секция совпадает с документом, который лежит перед менеджером</li>
+              <li style="display:flex;gap:12px"><span style="flex:none;color:var(--v-accent);font-weight:500">2</span>Правая навигация как карта формы: все секции видны сразу, под каждой — сколько обязательных полей осталось</li>
+              <li style="display:flex;gap:12px"><span style="flex:none;color:var(--v-accent);font-weight:500">3</span>Счётчик прогресса по обязательным полям</li>
+              <li style="display:flex;gap:12px"><span style="flex:none;color:var(--v-accent);font-weight:500">4</span>При смене типа клиента или страны состав секции пересобирается, навигация обновляет счётчики</li>
+              <li style="display:flex;gap:12px"><span style="flex:none;color:var(--v-accent);font-weight:500">5</span>Контекстные подсказки там, где цена ошибки высока: ИНН, ОГРН, основной код ОКВЭД</li>
+            </ol>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Развилка</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Пошаговый визард — ломает сценарий «заполнить частично и вернуться»: данные приходят от клиента вразнобой</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:#c9c9d0"></i>Аккордеон — скрывает объём работы и&nbsp;появление новых обязательных полей</li>
+            </ul>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;border-top:1px solid #e4e4e8;padding-top:16px">Менеджеры заполняют форму не линейно, поэтому нужен был не маршрут, а карта: единая форма с&nbsp;якорной навигацией и&nbsp;прогрессом.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <figure style="margin:0">
+            <div style="border-radius:24px;overflow:hidden;aspect-ratio:16/10;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+          <img src="/assets/form-before.webp" alt="Было — форма одним полотном" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top;cursor:zoom-in" width="2880" height="5356" srcset="/assets/form-before-960.webp 960w, /assets/form-before-1600.webp 1600w, /assets/form-before.webp 2880w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+        </div>
+            <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Было: все поля подряд, обязательность непонятна</figcaption>
+          </figure>
+          <figure style="margin:0">
+            <div style="border-radius:24px;overflow:hidden;aspect-ratio:16/10;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+              <img src="/assets/form-after.webp" alt="Стало — секции, навигация, прогресс" data-shot="" style="display:block;width:100%;height:100%;object-fit:cover;object-position:center top;cursor:zoom-in" width="2890" height="1620" srcset="/assets/form-after-960.webp 960w, /assets/form-after-1600.webp 1600w, /assets/form-after.webp 2890w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+            </div>
+            <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Стало: навигация показывает остаток по каждой секции</figcaption>
+          </figure>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Масштаб</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">60 менеджеров, около 700 карточек в&nbsp;месяц. По&nbsp;данным поддержки и&nbsp;интервью число обращений снизилось на&nbsp;30%.</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Проверка</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">9 сессий юзабилити на&nbsp;прототипе — по&nbsp;итогам перенёс счётчик из&nbsp;шапки в&nbsp;правую колонку.</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Результат</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Доля карточек, заполненных с&nbsp;первого раза, выросла на&nbsp;25%, обращений в&nbsp;поддержку стало меньше на&nbsp;30%.</p>
+          </div>
+        </div>
+        <p style="margin:clamp(20px,2.4vw,32px) 0 0"><a class="h6" href="/cases/sber-platform/client-form/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;border:1px solid #dededf;color:#111113;font-size:16px;font-weight:500;transition:border-color .25s,transform .3s cubic-bezier(.22,.61,.36,1)">Разбор фичи целиком<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+      </section>
+
+      <section id="domains" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">04 — Пример фичи</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Управление доменами данных и AI-пространство</h2>
+        <p style="margin:clamp(16px,2vw,24px) 0 0;max-width:56ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;text-wrap:pretty">От ручного разбора структуры данных — к визуальной навигации и&nbsp;работе через AI. От концепта до демо за неделю.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(28px,3.4vw,48px);align-items:start">
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Домены описывают группы атрибутов клиента: что&nbsp;входит, в&nbsp;каких форматах, с&nbsp;какими связями. Вложенность до четырёх уровней: домен → поддомен → логический → физический атрибут.</p>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Две разные боли</p>
+            <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Владельцы доменов вели структуру во внешних документах: связи держались в&nbsp;голове, изменение в&nbsp;одном месте ломало понимание в&nbsp;другом</li>
+              <li style="display:flex;gap:12px"><i style="width:6px;height:6px;border-radius:50%;flex:none;margin-top:.55em;display:inline-block;background:var(--v-accent)"></i>Обычные пользователи не могли применить домены: за ответом по выборке шли в&nbsp;Excel и&nbsp;сводили руками</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.4vw,36px);margin-top:clamp(20px,2.4vw,32px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,3vw,48px);align-items:center">
+          <h3 style="margin:0;font-size:clamp(18px,1.4vw,24px);line-height:1.25;letter-spacing:-.018em;font-weight:600">Ключевой инсайт</h3>
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Домен — не набор данных, а система связей. Владельцу её надо видеть, пользователю — применять. Одним интерфейсом задача не решается: нужны два сценария и разные права.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(28px,3.4vw,48px)">
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">01</span>
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Управление доменами</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Редактирование структуры, статистика и граф связей вместо таблиц. Риск нечитаемости на объёме закрывал фильтрами, поиском с фокусом на узле и сворачиванием уровней.</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">02</span>
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">AI-пространство</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Пользователь выбирает домены, подключает источники и работает с данными через диалог. Модель отвечает только в границах выбранных доменов — результат можно проверить.</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <span style="font-size:14px;color:var(--v-accent);font-weight:500">03</span>
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Шаблоны промптов и роли</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Повторяющиеся запросы сохраняются и&nbsp;переиспользуются. Владельцы получают управление и&nbsp;AI-пространство, остальные — только AI-пространство.</p>
+          </article>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <figure style="margin:0">
+            <div style="border-radius:24px;overflow:hidden;aspect-ratio:2560/1283;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+              <img src="/assets/domain-graph.webp" alt="Граф связей домена" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1283" srcset="/assets/domain-graph-960.webp 960w, /assets/domain-graph-1600.webp 1600w, /assets/domain-graph.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+            </div>
+            <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Структура домена: связи между уровнями атрибутов</figcaption>
+          </figure>
+          <figure style="margin:0">
+            <div style="border-radius:24px;overflow:hidden;aspect-ratio:4906/3064;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+              <img src="/assets/ai-space.webp" alt="AI-пространство" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2900" height="1811" srcset="/assets/ai-space-960.webp 960w, /assets/ai-space-1600.webp 1600w, /assets/ai-space.webp 2900w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+            </div>
+            <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Диалог с данными в границах выбранных доменов</figcaption>
+          </figure>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">3 000</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">доменов и&nbsp;атрибутов</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">54 / 3 500</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">владельцев и&nbsp;пользователей</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">25 → 13 мин</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">время на&nbsp;задачу</p>
+          </div>
+        </div>
+        <p style="margin:clamp(20px,2.4vw,32px) 0 0"><a class="h7" href="/cases/sber-platform/data-domains/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;border:1px solid #dededf;color:#111113;font-size:16px;font-weight:500;transition:border-color .25s,transform .3s cubic-bezier(.22,.61,.36,1)">Разбор фичи целиком<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+      </section>
+
+      <section id="bulk" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">05 — Пример фичи</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Массовые операции по&nbsp;филиальной сети</h2>
+        <p style="margin:clamp(16px,2vw,24px) 0 0;max-width:56ch;font-size:clamp(17px,1.35vw,22px);line-height:1.45;text-wrap:pretty">Ручная обработка 25–30 юрлиц превратилась в одну управляемую операцию: 3,5 часа → 10 минут.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(28px,3.4vw,48px);align-items:start">
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Компании филиальной сети связаны общим ИНН. Если банкротом признавался один филиал, статус проставляли всем остальным вручную, по&nbsp;карточке. Пропущенный филиал — финансовое решение по компании с неактуальным статусом.</p>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:16px">
+            <p style="margin:0;font-size:14px;color:var(--v-accent);font-weight:500">Компромисс</p>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Защищал полную автоматизацию — безопасность отклонила: необратимое массовое изменение критичных данных не должно происходить без подтверждения оператора. Переработал в&nbsp;контролируемый сценарий: ввод ИНН → список затрагиваемых компаний → подтверждение.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Точка входа</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Система сама находит банкротство в&nbsp;сети при работе с&nbsp;ИНН и&nbsp;предлагает распространить статус.</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Контроль вместо скорости</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Боковая панель со списком всех затрагиваемых компаний: пользователь впервые видит филиальную сеть целиком — этого не было и&nbsp;в&nbsp;ручном сценарии.</p>
+          </article>
+          <article style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px);display:flex;flex-direction:column;gap:14px">
+            <h3 style="margin:0;font-size:clamp(17px,1.3vw,22px);line-height:1.25;letter-spacing:-.016em;font-weight:600">Прозрачность выполнения</h3>
+            <p style="margin:0;font-size:clamp(15px,1.1vw,18px);line-height:1.5;color:#6c6c74">Прогресс с количеством обработанных компаний: массовая операция без обратной связи — источник тревоги.</p>
+          </article>
+        </div>
+
+        <figure style="margin:clamp(20px,2.4vw,32px) 0 0">
+          <div style="border-radius:24px;overflow:hidden;aspect-ratio:2560/1283;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06)">
+        <img src="/assets/bulk-spread.webp" alt="Сайдпейдж со списком затрагиваемых компаний" draggable="false" data-shot="" style="display:block;width:100%;height:100%;object-fit:contain;cursor:zoom-in" width="2560" height="1283" srcset="/assets/bulk-spread-960.webp 960w, /assets/bulk-spread-1600.webp 1600w, /assets/bulk-spread.webp 2560w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+      </div>
+          <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Форма данных о банкротстве</figcaption>
+        </figure>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:clamp(16px,1.7vw,32px);margin-top:clamp(20px,2.4vw,32px)">
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">3,5 ч → 10 мин</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">обработка сети</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">25–30</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">юрлиц в одной операции</p>
+          </div>
+          <div style="background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.2vw,32px)">
+            <div style="font-size:clamp(24px,2.4vw,38px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">0</div>
+            <p style="margin:12px 0 0;font-size:15px;color:#6c6c74">пропусков филиалов — исключено логикой</p>
+          </div>
+        </div>
+        <p style="margin:clamp(20px,2.4vw,32px) 0 0"><a class="h8" href="/cases/sber-platform/bulk-operations/" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 26px;border-radius:999px;border:1px solid #dededf;color:#111113;font-size:16px;font-weight:500;transition:border-color .25s,transform .3s cubic-bezier(.22,.61,.36,1)">Разбор фичи целиком<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M4 9h10M10 4l5 5-5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+      </section>
+
+      <section id="system" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">06 — Система и команда</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Дизайн-система и команда из&nbsp;одного дизайнера в&nbsp;три</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(20px,3vw,48px);margin-top:clamp(20px,2.4vw,32px);align-items:start">
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;text-wrap:pretty">Развил дизайн-систему на базе Ant Design: компоненты, состояния и процесс работы с&nbsp;ней в&nbsp;команде — меньше UI-ошибок, быстрее сборка экранов.</p>
+          <p style="margin:0;font-size:clamp(16px,1.25vw,20px);line-height:1.5;max-width:52ch;color:#6c6c74;text-wrap:pretty">Начинал единственным дизайнером, собрал команду из трёх: дизайн-ревью, кросс-ревью, единый стандарт качества.</p>
+        </div>
+        <figure style="margin:clamp(20px,2.4vw,32px) 0 0">
+          <div style="border-radius:24px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px rgba(17,17,19,.06),0 12px 40px rgba(17,17,19,.06);display:flex;justify-content:center">
+        <img src="/assets/design-system.webp" alt="Фрагмент дизайн-системы" draggable="false" data-shot="" style="display:block;width:100%;max-width:900px;height:auto;cursor:zoom-in" width="1698" height="3250" srcset="/assets/design-system-960.webp 960w, /assets/design-system-1600.webp 1600w, /assets/design-system.webp 1698w" sizes="(min-width: 1792px) 1632px, 100vw" loading="lazy" decoding="async">
+      </div>
+          <figcaption style="margin-top:14px;font-size:15px;color:#6c6c74">Библиотека компонентов и их состояний</figcaption>
+        </figure>
+      </section>
+
+      <section id="result" style="scroll-margin-top:96px">
+        <p style="margin:0 0 14px;font-size:clamp(14px,1.1vw,17px);color:var(--v-accent);font-weight:500">07 — Результат</p>
+        <h2 style="margin:0;max-width:22ch;font-size:clamp(30px,3.6vw,56px);line-height:1.04;letter-spacing:-.032em;font-weight:600;text-wrap:pretty">Что изменилось за два года</h2>
+        <ul style="margin:clamp(28px,3.4vw,48px) 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:clamp(12px,1.4vw,20px)">
+          <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.4vw,36px)">
+            <span style="font-size:clamp(26px,2.6vw,42px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">2 000 → 30 000+</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Пользователей, подключено 7 новых подразделений — единая архитектура позволила масштабировать продукт без роста сложности</p>
+          </li>
+          <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.4vw,36px)">
+            <span style="font-size:clamp(26px,2.6vw,42px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">CSI 78% → 84%</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">За год, данные по 27 000 людям</p>
+          </li>
+          <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.4vw,36px)">
+            <span style="font-size:clamp(26px,2.6vw,42px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">2 недели → 4 дня</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Обучение новичков</p>
+          </li>
+          <li style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(16px,2.4vw,40px);align-items:baseline;background:#f4f4f5;border-radius:24px;padding:clamp(20px,2.4vw,36px)">
+            <span style="font-size:clamp(26px,2.6vw,42px);line-height:1;letter-spacing:-.03em;font-weight:600;color:var(--v-accent);font-variant-numeric:tabular-nums">6 → 1</span>
+            <p style="margin:0;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74;max-width:52ch">Сервис заменил шесть систем и стал основным рабочим инструментом</p>
+          </li>
+        </ul>
+        <dc-if data-if="showNdaNote">
+          <p style="margin: clamp(20px,2.4vw,32px) 0 0; max-width: 62ch; font-size: clamp(15px,1.15vw,18px); line-height: 1.5; color: #9a9aa3">Часть интерфейсов и цифр скрыта из-за NDA — подробно расскажу на встрече.</p>
+        </dc-if>
+      </section>
+
+    </main>
+  </div>
+
+  <section style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);padding-top:clamp(64px,8vw,128px)">
+    <div style="background:#f4f4f5;border-radius:32px;padding:clamp(28px,4vw,80px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(24px,3vw,48px);align-items:center">
+      <div>
+        <h2 style="margin:0 0 12px;font-size:clamp(28px,3.2vw,48px);line-height:1.08;letter-spacing:-.028em;font-weight:600;text-wrap:pretty">Расскажу детали, которые не попали в кейс</h2>
+        <p style="margin:0;max-width:44ch;font-size:clamp(15px,1.15vw,19px);line-height:1.5;color:#6c6c74">Про исследования, компромиссы и то, как решения защищались перед стейкхолдерами.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;justify-self:end">
+        <a class="h9" href="/" style="display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 26px;border-radius:999px;border:1px solid #dededf;font-size:16px;font-weight:500;color:#111113;transition:border-color .25s">Все кейсы</a>
+        <a class="h10" href="https://t.me/gurevnind" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:9px;height:var(--v-tgH);padding:var(--v-tgPad);border-radius:999px;color:#fff;font-size:16px;font-weight:500;background:var(--v-accent);transition:transform .3s cubic-bezier(.22,.61,.36,1),box-shadow .3s">
+          <span data-t="tgLabel" style="display:contents"></span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <dc-if data-if="zoomOpen" hidden>
+    <div role="dialog" aria-modal="true" style="position:fixed;inset:0;z-index:200;background:rgba(17,17,19,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:clamp(20px,4vw,64px);cursor:zoom-out" data-on="click:closeZoom">
+      <div style="position:absolute;top:clamp(16px,2vw,32px);right:clamp(16px,2vw,32px);display:flex;gap:8px;z-index:2">
+        <button class="h11" aria-label="Уменьшить" style="width:48px;height:48px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s;opacity:var(--v-zoomOutOp)" data-on="click:zoomOut">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 10h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+        </button>
+        <span style="height:48px;padding:0 18px;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;display:inline-flex;align-items:center;font-size:15px;font-variant-numeric:tabular-nums"><span data-t="zoomPct" style="display:contents"></span></span>
+        <button class="h12" aria-label="Увеличить" style="width:48px;height:48px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s;opacity:var(--v-zoomInOp)" data-on="click:zoomIn">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 5v10M5 10h10" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+        </button>
+        <button class="h13" aria-label="Закрыть" style="width:48px;height:48px;border:0;border-radius:999px;background:rgba(255,255,255,.14);color:#fff;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .25s" data-on="click:closeZoom">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path></svg>
+        </button>
+      </div>
+      <div data-ref="panRef" style="width:var(--v-zBoxW);max-height:var(--v-zBoxMax);height:var(--v-zBoxH);display:var(--v-zBoxDisp);overflow:auto;border-radius:20px;cursor:var(--v-zoomCursor);user-select:none" data-on="click:stop;mousedown:panStart">
+        <dc-if data-if="zoomHasImg" hidden>
+          <span data-t="zoomImg" style="display:contents"></span>
+        </dc-if>
+        <dc-if data-if="zoomNoImg">
+          <div style="aspect-ratio:16/9;transition:width .3s cubic-bezier(.22,.61,.36,1);width:var(--v-zoomWidth);background:repeating-linear-gradient(135deg,#e2e2e6 0 10px,#dadade 10px 20px);display:flex;align-items:center;justify-content:center">
+            <span style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:14px;color:#8b8b94;text-align:center;padding:24px"><span data-t="zoomLabel" style="display:contents"></span></span>
+          </div>
+        </dc-if>
+      </div>
+      <p style="margin:0;font-size:15px;color:rgba(255,255,255,.72);text-align:center;max-width:60ch"><span data-t="zoomCap" style="display:contents"></span></p>
+    </div>
+  </dc-if>
+
+  <footer style="border-top:1px solid #e4e4e8;margin-top:clamp(56px,7vw,120px)">
+    <div style="max-width:1792px;margin:0 auto;padding-inline:clamp(20px,4vw,80px);min-height:96px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:14px;color:#6c6c74">
+      <span>© dmitry gurevnin, 2026</span>
+      <a class="h14" href="#top" aria-label="Наверх" style="position:fixed;right:clamp(16px,2.4vw,40px);bottom:clamp(16px,2.4vw,40px);z-index:200;width:52px;height:52px;border-radius:999px;display:flex;align-items:center;justify-content:center;color:#111113;background:linear-gradient(180deg,rgba(255,255,255,.42) 0%,rgba(255,255,255,.22) 100%);backdrop-filter:saturate(190%) brightness(1.06) blur(12px);-webkit-backdrop-filter:saturate(190%) brightness(1.06) blur(12px);border:1px solid rgba(255,255,255,.5);box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 4px 16px rgba(17,17,19,.12);transition:opacity .3s,transform .3s;opacity:var(--v-topOpacity);pointer-events:var(--v-topEvents);transform:translateY(var(--v-topShift))" data-on="click:toTop">
+        <svg width="20" height="20" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      </a>
+    </div>
+  </footer>
+</div>
+<script src="/assets/site.0cfb4e09.js"></script>
+<script>window.DC_VARS=["accent", "cT", "hdrH", "headerBg", "headerBlur", "headerShadow", "navBleed", "navDir", "navGap", "navPadX", "navPb", "navPos", "railCols", "tgH", "tgPad", "topEvents", "topOpacity", "topShift", "zBoxDisp", "zBoxH", "zBoxMax", "zBoxW", "zoomCursor", "zoomInOp", "zoomOutOp", "zoomWidth"];
+class Component extends DCLogic {
+  sections = [
+    ['context', 'Контекст'],
+    ['architecture', 'Архитектура'],
+    ['form', 'Форма создания клиента'],
+    ['domains', 'Домены и AI-пространство'],
+    ['bulk', 'Массовые операции'],
+    ['system', 'Система и команда'],
+    ['result', 'Результат']
+  ];
+
+  state = { active: 'context', scrolled: false, narrow: false, ci: 0 };
+  cN = 9;
+  cTouched = 0;
+  cHovered = false;
+  cStep(d, e) {
+    if (e) e.stopPropagation();
+    this.cTouched = Date.now();
+    this.setState(s => ({ ci: ((s.ci + d) % this.cN + this.cN) % this.cN }));
+  }
+
+  componentDidMount() {
+    this.onMob = () => { const m = window.innerWidth < 640; if (m !== !!this.state.mob) this.setState({ mob: m }); };
+    this.onMob();
+    window.addEventListener('resize', this.onMob);
+    this.onScroll = () => {
+      const upT = window.scrollY > 600;
+      if (upT !== !!this.state.showTop) this.setState({ showTop: upT });
+      const scrolled = window.scrollY > 12;
+      let active = this.sections[0][0];
+      for (const [id] of this.sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 160) active = id;
+      }
+      if (scrolled !== this.state.scrolled || active !== this.state.active) {
+        this.setState({ scrolled, active });
+      }
+    };
+    this.onResize = () => {
+      const narrow = window.innerWidth < 1100;
+      if (narrow !== this.state.narrow) this.setState({ narrow });
+    };
+    this.onClick = (e) => {
+      const shot = e.target.closest && e.target.closest('[data-shot]');
+      if (shot) {
+        this.setState({ zoom: { label: '', cap: shot.getAttribute('alt') || '', src: shot.getAttribute('src'), ratio: shot.naturalWidth ? shot.naturalWidth + '/' + shot.naturalHeight : '16/9' }, scale: 1 });
+        return;
+      }
+      const fig = e.target.closest && e.target.closest('figure');
+      if (!fig || !fig.querySelector('div')) return;
+      const label = (fig.querySelector('span') || {}).textContent || '';
+      const cap = (fig.querySelector('figcaption') || {}).textContent || '';
+      const im = fig.querySelector('img');
+      this.setState({ zoom: { label: im ? '' : label, cap, src: im ? im.getAttribute('src') : '', ratio: im && im.naturalWidth ? im.naturalWidth + '/' + im.naturalHeight : '16/9' }, scale: 1 });
+    };
+    this.onKey = (e) => { if (e.key === 'Escape') this.setState({ zoom: null }); };
+    this.cAuto = setInterval(() => {
+      if (this.state.zoom || document.hidden || this.cHovered || Date.now() - this.cTouched < 5000) return;
+      this.setState(s => ({ ci: (s.ci + 1) % this.cN }));
+    }, 5000);
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    window.addEventListener('resize', this.onResize);
+    document.addEventListener('click', this.onClick);
+    document.addEventListener('keydown', this.onKey);
+    this.onScroll();
+    this.onResize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onMob);
+    clearInterval(this.cAuto);
+    window.removeEventListener('scroll', this.onScroll);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('click', this.onClick);
+    document.removeEventListener('keydown', this.onKey);
+  }
+
+  pad(n) { return n < 10 ? '0' + n : String(n); }
+
+  renderVals() {
+    const ci = this.state.ci ?? 0;
+    const carousel = {
+      cc: this.pad(ci + 1),
+      cT: (-ci * 100) + '%',
+      cPrev: (e) => this.cStep(-1, e),
+      cNext: (e) => this.cStep(1, e),
+      cHoverIn: () => { this.cHovered = true; },
+      cHoverOut: () => { this.cHovered = false; this.cTouched = Date.now(); },
+      cDots: Array.from({ length: this.cN }, (_, k) => ({ w: k === ci ? '24px' : '6px', bg: k === ci ? '#111113' : '#d4d4d8', on: (e) => { e.stopPropagation(); this.cTouched = Date.now(); this.setState({ ci: k }); } }))
+    };
+    const accent = this.props.accentColor ?? '#1B44E0';
+    const sc = this.state.scrolled;
+    const nav = this.sections.map(([id, label], k) => {
+      const on = this.state.active === id;
+      return {
+        href: '#' + id,
+        label,
+        i: this.pad(k + 1),
+        color: on ? '#111113' : '#6c6c74',
+        num: on ? accent : '#b6b6bd',
+        bg: on ? '#f4f4f5' : 'transparent'
+      };
+    });
+    const z = this.state.zoom;
+    return {
+      tgLabel: this.state.mob ? 'TG' : 'Написать в TG',
+      tgH: this.state.mob ? '44px' : '52px',
+      tgPad: this.state.mob ? '0 18px' : '0 26px',
+      mobHide: this.state.mob ? 'none' : 'inline',
+      hdrH: this.state.mob ? '60px' : '72px',
+      navPos: this.state.narrow ? 'static' : 'sticky',
+      navDir: this.state.narrow ? 'row' : 'column',
+      navGap: this.state.narrow ? '4px' : '2px',
+      navPb: this.state.narrow ? '4px' : '24px',
+      navBleed: this.state.narrow ? 'calc(-1 * clamp(20px,4vw,80px))' : '0',
+      navPadX: this.state.narrow ? 'clamp(20px,4vw,80px)' : '0',
+      topOpacity: this.state.showTop ? 1 : 0,
+      topEvents: this.state.showTop ? 'auto' : 'none',
+      topShift: this.state.showTop ? '0' : '12px',
+      toTop: (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); },
+      ...carousel,
+      accent,
+      showNdaNote: this.props.showNdaNote ?? true,
+      zoomOpen: !!z,
+      zoomLabel: z ? z.label : '',
+      zBoxW: this.state.mob ? '100%' : 'min(1440px,100%)',
+      zBoxMax: this.state.mob ? 'none' : '78vh',
+      zBoxDisp: this.state.mob ? 'flex' : 'block',
+      zBoxH: this.state.mob ? 'calc(100dvh - 120px)' : 'auto',
+      zoomImg: (z && z.src) ? (this.state.mob ? (() => {
+        const r = (z && z.ratio ? z.ratio.split('/').reduce((a, b) => a / b) : 16 / 9), k = (this.state.scale ?? 1);
+        const L = `min(calc(100dvh - 120px), calc((100vw - 32px) * ${r}))`;
+        return React.createElement('div', { style: { position: 'relative', flex: 'none', margin: 'auto', width: `calc(${L} / ${r} * ${k})`, height: `calc(${L} * ${k})`, transition: 'width .3s, height .3s' } },
+          React.createElement('img', { src: z.src, alt: '', draggable: false, style: { position: 'absolute', left: '50%', top: '50%', width: `calc(${L} * ${k})`, height: `calc(${L} / ${r} * ${k})`, maxWidth: 'none', transform: 'translate(-50%,-50%) rotate(90deg)', background: '#fff', transition: 'width .3s, height .3s' } }));
+      })() : React.createElement('img', { src: z.src, alt: '', draggable: false, style: { display: 'block', width: ((this.state.scale ?? 1) * 100) + '%', height: 'auto', background: '#fff', transition: 'width .3s cubic-bezier(.22,.61,.36,1)' } })) : null,
+      zoomHasImg: !!(z && z.src),
+      zoomNoImg: !(z && z.src),
+      zoomCap: z ? z.cap : '',
+      zoomWidth: ((this.state.scale ?? 1) * 100) + '%',
+      zoomPct: Math.round((this.state.scale ?? 1) * 100) + '%',
+      zoomCursor: (this.state.scale ?? 1) > 1 ? (this.state.panning ? 'grabbing' : 'grab') : 'default',
+      panRef: (el) => { this.pane = el; },
+      panStart: (e) => {
+        if ((this.state.scale ?? 1) <= 1 || !this.pane) return;
+        e.preventDefault();
+        const pane = this.pane;
+        const sx = e.clientX, sy = e.clientY, l = pane.scrollLeft, t = pane.scrollTop;
+        this.setState({ panning: true });
+        const move = (ev) => { pane.scrollLeft = l - (ev.clientX - sx); pane.scrollTop = t - (ev.clientY - sy); };
+        const up = () => {
+          document.removeEventListener('mousemove', move);
+          document.removeEventListener('mouseup', up);
+          this.setState({ panning: false });
+        };
+        document.addEventListener('mousemove', move);
+        document.addEventListener('mouseup', up);
+      },
+      zoomInOp: (this.state.scale ?? 1) >= 3 ? 0.35 : 1,
+      zoomOutOp: (this.state.scale ?? 1) <= 1 ? 0.35 : 1,
+      zoomIn: (e) => { e.stopPropagation(); this.setState(s => ({ scale: Math.min(3, (s.scale ?? 1) + 0.5) })); },
+      zoomOut: (e) => { e.stopPropagation(); this.setState(s => ({ scale: Math.max(1, (s.scale ?? 1) - 0.5) })); },
+      stop: (e) => e.stopPropagation(),
+      closeZoom: () => this.setState({ zoom: null, scale: 1 }),
+      headerBg: sc ? 'rgba(255,255,255,.6)' : 'transparent',
+      headerBlur: sc ? 'saturate(160%) blur(12px)' : 'blur(0px)',
+      headerShadow: sc ? '0 1px 0 rgba(17,17,19,.06)' : 'none',
+      railCols: this.state.narrow ? '1fr' : 'minmax(200px,240px) minmax(0,1fr)',
+      nav
+    };
+  }
+}
+DC.mount(Component,{"accentColor": "#1B44E0", "showNdaNote": true});</script>
+</body>
+</html>
