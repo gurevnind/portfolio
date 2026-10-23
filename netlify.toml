@@ -8,6 +8,13 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Резюме не должно попадать в поиск вместо главной и не должно залипать в кэше.
+[[headers]]
+  for = "/assets/*.pdf"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "public, max-age=0, must-revalidate"
+
 [[headers]]
   for = "/*"
   [headers.values]
