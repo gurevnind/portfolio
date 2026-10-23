@@ -30,6 +30,11 @@ SITE_URL = os.environ.get('SITE_URL', 'https://gurevnind.ru').rstrip('/')
 ACCENT = '#1B44E0'
 SITE_JS = 'site.js'  # имя с хэшем содержимого задаётся в main()
 
+# Метатеги подтверждения прав для панелей вебмастера; выводятся только на главной.
+VERIFICATION = {
+    'yandex-verification': '20485b39baa75f5a',
+}
+
 PAGES = {
     'Portfolio.dc.html': {
         'route': '/',
@@ -319,6 +324,7 @@ def head(meta, css):
     og_img = abs_url('/og.png')
     canonical = f'<link rel="canonical" href="{abs_url(meta["route"])}">\n' if SITE_URL else ''
     og_url = f'<meta property="og:url" content="{abs_url(meta["route"])}">\n' if SITE_URL else ''
+    verify = ''.join(f'<meta name="{k}" content="{v}">\n' for k, v in VERIFICATION.items()) if meta['route'] == '/' else ''
     return f'''<!doctype html>
 <html lang="ru">
 <head>
@@ -326,7 +332,7 @@ def head(meta, css):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{t}</title>
 <meta name="description" content="{d}">
-{canonical}<meta name="theme-color" content="#ffffff">
+{canonical}{verify}<meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
