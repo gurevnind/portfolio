@@ -34,6 +34,8 @@ SITE_JS = 'site.js'  # имя с хэшем содержимого задаёт�
 VERIFICATION = {
     'yandex-verification': '20485b39baa75f5a',
 }
+# Ключ IndexNow: файл /<ключ>.txt подтверждает, что уведомления шлёт владелец сайта.
+INDEXNOW_KEY = 'd0c705f09210197d3875f06d88c2709b'
 
 PAGES = {
     'Portfolio.dc.html': {
@@ -505,6 +507,7 @@ def build_seo_files():
         urls = ''.join(f'<url><loc>{SITE_URL}{m["route"]}</loc></url>' for m in PAGES.values())
         (DIST / 'sitemap.xml').write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n', encoding='utf-8')
     (DIST / 'robots.txt').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    (DIST / f'{INDEXNOW_KEY}.txt').write_text(INDEXNOW_KEY, encoding='utf-8')
 
 
 def main():
