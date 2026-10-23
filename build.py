@@ -302,7 +302,6 @@ def split_decls(s):
 
 BASE_CSS = (
     'dc-if,dc-for{display:contents}dc-if[hidden]{display:none!important}'
-    'img{max-width:100%}'
     ':focus-visible{outline:2px solid ' + ACCENT + ';outline-offset:2px}'
     # Точки карусели 6px — расширяем зону нажатия без изменения вида.
     'button[aria-label="Слайд"]{position:relative}'
