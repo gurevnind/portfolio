@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: /assets/*.pdf
 Allow: /
 Sitemap: https://gurevnind.ru/sitemap.xml

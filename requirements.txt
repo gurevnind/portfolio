@@ -1,1 +1,2 @@
 pillow>=10
+boto3>=1.28  # только для deploy_yc.py

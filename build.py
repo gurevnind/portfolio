@@ -501,7 +501,8 @@ def build_icons_and_og():
 
 
 def build_seo_files():
-    lines = ['User-agent: *', 'Allow: /']
+    # PDF закрыт и здесь: Object Storage не умеет отдавать X-Robots-Tag.
+    lines = ['User-agent: *', 'Disallow: /assets/*.pdf', 'Allow: /']
     if SITE_URL:
         lines.append(f'Sitemap: {SITE_URL}/sitemap.xml')
         urls = ''.join(f'<url><loc>{SITE_URL}{m["route"]}</loc></url>' for m in PAGES.values())
